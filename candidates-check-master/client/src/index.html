@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="candidatesCheck">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-expanded="false"
+                    data-ng-init="navCollapsed = true" data-ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/#/"><i>Проверка кандидатов</i></a>
+        </div>
+
+        <div class="collapse navbar-collapse" collapse="navCollapsed">
+            <ul class="nav navbar-nav">
+
+
+            </ul>
+
+
+        </div>
+    </div>
+</nav>
+
+<div class="container"  data-ng-controller="CandidatesListCtrl">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="candidate in candidates">
+            <td data-ng-bind="$index + 1"></td>
+            <td data-ng-bind="candidate.surname"></td>
+            <td data-ng-bind="candidate.name"></td>
+            <td data-ng-bind="candidate.id"></td>
+            <td><button data-ng-click="delete()" class="btn btn-default">Удалить</button></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="well">
+        <div class="form-group">
+            <label for="surname">Фамилия</label>
+            <input class="form-control" id="surname" data-ng-model="surname">
+        </div>
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input class="form-control" id="name" data-ng-model="name">
+        </div>
+        <button data-ng-click="add()" class="btn btn-default">Добавить</button>
+    </form>
+</div>
+
+
+
+<hr/>
+<div  class="container text-right">
+    <span data-ng-bind="'Банк России 2016'"></span>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="module/app.js"></script>
+</body>
+</html>
