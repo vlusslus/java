@@ -1,0 +1,9 @@
+#Fri Feb 26 15:38:38 MSK 2016
+HOST=127.0.0.1
+DOWNLOADPATH=E\:\\IT\\GITreps\\java\\TradingViewTestTask\\Client\\Downloads
+SHOWTT=false
+SAVELOGS=true
+LOADLOGS=false
+CONNECTONSTARTUP=false
+SHOWSETT=true
+INTERFACELANGUAGE=RUSSIAN
