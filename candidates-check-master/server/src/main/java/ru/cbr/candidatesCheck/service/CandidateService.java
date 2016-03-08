@@ -37,4 +37,9 @@ public class CandidateService {
         candidateRepository.save(candidate);
         return candidate;
     }
+    @Transactional
+    public void delete(Long id)
+    {
+        candidateRepository.delete(id);
+    }
 }

@@ -1,13 +1,10 @@
 package ru.cbr.candidatesCheck.web;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.cbr.candidatesCheck.domen.Candidate;
 import ru.cbr.candidatesCheck.service.CandidateService;
-
 import java.util.List;
+
 @RestController
 @RequestMapping(value = "/candidate")
 public class CandidateController {
@@ -26,5 +23,11 @@ public class CandidateController {
     @RequestMapping(method = RequestMethod.POST)
     Candidate add(@RequestBody Candidate candidate){
         return candidateService.add(candidate);
+    }
+    @RequestMapping(method=RequestMethod.DELETE)
+    public List<Candidate> delete(@PathVariable String id) {
+        candidateService.delete(Long.parseLong(id));
+        List<Candidate> candidates = candidateService.getAll();
+        return candidates;
     }
 }

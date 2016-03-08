@@ -18,6 +18,9 @@
                 });
             }
         }
+        $scope.delete = function(id){
+            $scope.candidates.splice($scope.candidates.indexOf(id), 1);
+        }
     });
 
     module.factory('candidateService',function($http, $q){
@@ -38,6 +41,15 @@
                     })
                     .catch(function (result) {
                         alert('Упс не удалось добавить кандидата!');
+                        return $q.reject(result);
+                    });
+            },
+            delete:function(id){
+                return $http.delete(id).then(function(result){
+                    return result.data;
+                })
+                    .catch(function (result) {
+                        alert('Ошибка удаления!');
                         return $q.reject(result);
                     });
             }
