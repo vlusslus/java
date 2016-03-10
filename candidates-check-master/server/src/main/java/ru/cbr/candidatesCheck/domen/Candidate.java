@@ -56,5 +56,4 @@ public class Candidate {
         return !(surname != null ? !surname.equals(candidate.surname) : candidate.surname != null);
 
     }
-
 }

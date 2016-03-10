@@ -18,8 +18,9 @@
                 });
             }
         }
-        $scope.delete = function(id){
-            $scope.candidates.splice($scope.candidates.indexOf(id), 1);
+        $scope.delete = function(candidate){
+            candidateService.delete(candidate);
+            //$scope.candidates.splice(candidate, 1);
         }
     });
 
@@ -35,7 +36,7 @@
                     name: name,
                     surname: surname
                 };
-                return $http.post('/candidate',candidate)
+                return $http.post('/candidate', id)
                     .then(function (result) {
                         return result.data;
                     })
@@ -44,14 +45,15 @@
                         return $q.reject(result);
                     });
             },
-            delete:function(id){
-                return $http.delete(id).then(function(result){
-                    return result.data;
-                })
+            delete:function(candidate){
+                return $http.delete('/candidate' + candidate).then(function(result){
+                        return result.data;
+                    })
                     .catch(function (result) {
                         alert('Ошибка удаления!');
                         return $q.reject(result);
                     });
+
             }
         }
     });

@@ -24,10 +24,11 @@ public class CandidateController {
     Candidate add(@RequestBody Candidate candidate){
         return candidateService.add(candidate);
     }
-    @RequestMapping(method=RequestMethod.DELETE)
-    public List<Candidate> delete(@PathVariable String id) {
-        candidateService.delete(Long.parseLong(id));
-        List<Candidate> candidates = candidateService.getAll();
-        return candidates;
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public List<Candidate> delete(@RequestBody Candidate candidate) {
+        candidateService.delete(candidate);
+        System.out.println(candidate.getName());
+        return candidateService.getAll();
     }
 }

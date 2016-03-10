@@ -38,8 +38,8 @@ public class CandidateService {
         return candidate;
     }
     @Transactional
-    public void delete(Long id)
+    public void delete(Candidate candidate)
     {
-        candidateRepository.delete(id);
+        candidateRepository.delete(candidate);
     }
 }
