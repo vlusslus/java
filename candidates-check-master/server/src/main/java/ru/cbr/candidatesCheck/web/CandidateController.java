@@ -26,7 +26,7 @@ public class CandidateController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public List<Candidate> delete(@RequestBody Candidate candidate) {
+    public List<Candidate> delete(@RequestBody  Candidate candidate) {
         candidateService.delete(candidate);
         System.out.println(candidate.getName());
         return candidateService.getAll();
